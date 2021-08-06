@@ -10,11 +10,9 @@ public interface UserService {
 
     List<User> allUsers();
 
-    User showUserById(int id);
+    User getUserById(int id);
 
     void updateUser(int id, User usr);
 
-    void deleteUser(int id);
-
-    void removeUser(User user);
+    void removeUser(int id);
 }

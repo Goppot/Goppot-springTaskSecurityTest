@@ -39,8 +39,8 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Transactional
     @Override
-    public User showUserById(int id) {
-        return userDao.showUserById(id);
+    public User getUserById(int id) {
+        return userDao.getUserById(id);
     }
 
     @Transactional
@@ -52,14 +52,8 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
     @Transactional
     @Override
-    public void deleteUser(int id) {
-        userDao.deleteUser(id);
-    }
-
-    @Transactional
-    @Override
-    public void removeUser(User user) {
-        userDao.removeUser(user);
+    public void removeUser(int id) {
+        userDao.removeUser(id);
     }
 
     @Transactional

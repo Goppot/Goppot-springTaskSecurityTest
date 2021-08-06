@@ -10,14 +10,12 @@ public interface UserDao {
 
     List<User> allUsers();
 
-    User showUserById(int id);
+    User getUserById(int id);
 
     User getUserByEmail(String email);
 
     void updateUser(int id, User usr);
 
-    void deleteUser(int id);
-
-    void removeUser(User user);
+    void removeUser(int id);
 }
 
