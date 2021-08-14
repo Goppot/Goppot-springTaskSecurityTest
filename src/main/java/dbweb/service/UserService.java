@@ -12,6 +12,8 @@ public interface UserService {
 
     User getUserById(int id);
 
+    User getShowId();
+
     void updateUser(int id, User usr);
 
     void removeUser(int id);
