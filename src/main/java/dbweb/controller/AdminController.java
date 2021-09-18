@@ -1,8 +1,6 @@
 package dbweb.controller;
 
-import dbweb.model.User;
 import dbweb.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +15,6 @@ public class AdminController {
         this.userService = userService;
     }
 
-
     @GetMapping()
     public String getAllUsers(Model model) {
         model.addAttribute("users", userService.allUsers());
@@ -31,13 +28,17 @@ public class AdminController {
     }
 
     @GetMapping("/create-user")
-    public String createUserForm(User user) {
+    public String createUserForm() {
         return "/create-user";
     }
 
     @PostMapping("/create-user")
-    public String createUser(User user) {
-        userService.addUser(user);
+    public String createUser(@RequestParam String name,
+                             @RequestParam int age,
+                             @RequestParam String email,
+                             @RequestParam String password,
+                             @RequestParam String role) {
+        userService.addUser(name, age, email, password, role);
         return "redirect:/admin";
     }
 
@@ -48,13 +49,18 @@ public class AdminController {
     }
 
     @PostMapping("/update-user")
-    public String updateUser(int id, User user) {
-        userService.updateUser(user.getId(), user);
+    public String updateUser(@RequestParam int id,
+                             @RequestParam String name,
+                             @RequestParam int age,
+                             @RequestParam String email,
+                             @RequestParam String password,
+                             @RequestParam String role) {
+        userService.updateUser(id, name, age, email, password, role);
         return "redirect:/admin";
     }
 
-    @GetMapping("delete-user/{id}")
-    public String deleteUser(User user, @PathVariable("id") int id) {
+    @PostMapping("delete-user/{id}")
+    public String deleteUser(@PathVariable("id") int id) {
         userService.removeUser(id);
         return "redirect:/admin";
     }

@@ -7,19 +7,26 @@
 <body>
 <form th:method="POST" th:action="@{/admin/update-user}" th:object="${user}">
     <label for="id">ID</label>
-    <input readonly type="number" th:field="*{id}" id="id">
+    <input readonly type="number" th:field="*{id}" name="id" id="id">
     <br/>
     <label for="name">Enter name: </label>
-    <input type="text" th:field="*{name}" id="name"/>
+    <input type="text" th:field="*{name}" name="name" id="name"/>
     <br/>
     <label for="age">Enter age: </label>
-    <input type="text" th:field="*{age}" id="age"/>
+    <input type="text" th:field="*{age}" name="age" id="age"/>
     <br/>
     <label for="email">Enter email: </label>
-    <input type="text" th:field="*{email}" id="email"/>
+    <input type="text" th:field="*{email}" name="email" id="email"/>
     <br/>
     <label for="password">Enter password: </label>
-    <input type="text" th:field="*{password}" id="password">
+    <input type="text" name="password" id="password">
+    <br/>
+    <br/>
+    <label for="role">Enter role: </label>
+    <select multiple="multiple" size="2" name="role" id="role">
+        <option selected>USER</option>
+        <option>ADMIN</option>
+    </select>
     <br/>
     <input type="submit" value="Update user">
 </form>

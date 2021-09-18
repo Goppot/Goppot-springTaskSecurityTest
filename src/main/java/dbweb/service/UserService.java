@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
-    void addUser(User user);
+    void addUser(String name, int age, String email,  String password, String role);
 
     List<User> allUsers();
 
@@ -14,7 +14,7 @@ public interface UserService {
 
     User getShowId();
 
-    void updateUser(int id, User usr);
+    void updateUser(int id, String name, int age, String email,  String password, String role);
 
     void removeUser(int id);
 }

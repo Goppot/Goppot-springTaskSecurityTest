@@ -15,6 +15,7 @@
             <th>Age</th>
             <th>Email</th>
             <th>Password</th>
+            <th>Role</th>
         </tr>
         </thead>
         <tbody>
@@ -24,9 +25,12 @@
             <td th:text="${user.getAge()}"></td>
             <td th:text="${user.getEmail()}"></td>
             <td th:text="${user.getPassword()}"></td>
+            <td th:text="${user.getRoles}"></td>
             <td></td>
-            <td><a th:href="@{/admin/update-user/{id}(id=${user.getId()})}">update</a></td>
-            <td><a th:href="@{/admin/delete-user/{id}(id=${user.getId()})}">delete</a></td>
+            <td><a th:href="@{/admin/update-user/{id}(id=${user.getId()})}"><button>update</button></a></td>
+            <form th:method="POST" th:action="@{/admin/delete-user/{id}(id=${user.getId()})}" th:object="${user}">
+                <td><button type="submit">delete</button></td>
+            </form>
         </tr>
         </tbody>
     </table>
